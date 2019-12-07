@@ -11,10 +11,10 @@
     <title>Super Blog</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/PHP_projet_Blog_DUT2019/vues/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link rel="stylesheet" href="/vues/css/cssVueUtilisateur.css">
+    <link rel="stylesheet" href="/PHP_projet_Blog_DUT2019/vues/css/cssVueUtilisateur.css">
 
 </head>
 
