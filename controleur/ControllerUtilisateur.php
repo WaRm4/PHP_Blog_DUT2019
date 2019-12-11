@@ -40,7 +40,7 @@ class ControllerUtilisateur
                         break;
 
                     case "Validation" :
-                        $this->validationCommentaire($dataVueErreur, $modelCommentaire);
+                        $this->validationCommentaire($dataVueErreur, $modelCommentaire, $_GET['id']);
                         break;
 
                     default:
@@ -70,15 +70,14 @@ class ControllerUtilisateur
         exit(0);
     }
 
-    function validationCommentaire(array $dVueEreur, $modelCommentaire) {
-
+    function validationCommentaire(array $dVueEreur, $modelCommentaire, $id) {
         $pseudo=$_POST['pseudo'];
         $contenu=$_POST['contenu'];
         Validation::val_Commentaire($pseudo,$contenu,$dVueEreur);
+        $modelCommentaire
+        $commentaire = $modelCommentaire->selectCommentaires($id);
 
-        $commentaire = $modelCommentaire->selectCommentaires($_GET['id']);
-
-        require(__DIR__ . '/../vues/VueNews.php');
+        HEADER('location : index.php?action=News&'. $commentaire->getId() );
     }
 
 }

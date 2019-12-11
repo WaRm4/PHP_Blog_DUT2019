@@ -43,12 +43,12 @@ include("header.php");
             <div class="card my-4">
                 <h5 class="card-header">Leave a Comment:</h5>
                 <div class="card-body">
-                    <form>
+                    <form method="post">
                         <textarea name="pseudo" required class="form-control" rows="1"></textarea>
                         <div class="form-group">
                             <textarea name="contenu" required class="form-control" rows="3"></textarea>
                         </div>
-                        <button type="submit" name="valider" class="btn btn-primary" href="?action=Validation">Submit</button>
+                        <button type="submit" name="valider" class="btn btn-primary" href="index.php?action=Validation&" <?php echo $news->getId() ?> >Submit</button>
                     </form>
                 </div>
             </div>
