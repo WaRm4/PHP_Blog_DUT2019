@@ -7,13 +7,15 @@ class News
     private $titre;
     private $contenu;
     private $date;
+    private $url;
 
-    public function __construct($id,$titre,$contenu,$date)
+    public function __construct($id,$titre,$contenu,$date,$url)
     {
         $this->id=$id;
         $this->titre=$titre;
         $this->contenu=$contenu;
         $this->date=$date;
+        $this->url=$url;
     }
 
     public function getId(){
@@ -28,6 +30,9 @@ class News
     public function getDate(){
         return $this->date;
     }
+    public function getUrl(){
+        return $this->url;
+    }
 
     public function setTitre($titre){
         $this->titre=$titre;
@@ -37,6 +42,9 @@ class News
     }
     public function setDate($date){
         $this->date=$date;
+    }
+    public function setUrl($url){
+        $this->url=$url;
     }
 
 

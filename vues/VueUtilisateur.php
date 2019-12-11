@@ -4,23 +4,16 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <title>Super Blog</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="/PHP_projet_Blog_DUT2019/vues/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link rel="stylesheet" href="/PHP_projet_Blog_DUT2019/vues/css/cssVueUtilisateur.css">
+    <link href="vues/bootstrap/css/bootstrap.min.css" rel="stylesheet"> <!-- Car c'est appelé depuis l'index-->
+    <link href="vues/css/vueUtilisateur.css" rel="stylesheet" >
 
 </head>
 
 <?php
-
-require("header.php");
+include("header.php");
 
 ?>
 
@@ -31,7 +24,7 @@ require("header.php");
     <div class="row">
 
         <!-- Blog Entries Column -->
-        <div class="col-md-8">
+        <div class="col-md-9">
 
             <h1 class="my-4">Bienvenue sur mon super Blog !
             </h1>
@@ -46,14 +39,14 @@ require("header.php");
 
 
                 echo "
-            <div class=\"card mb-4\">
-                <img class=\"card-img-top\" src=\"http://placehold.it/750x300\" alt=\"Card image cap\">
-                <div class=\"card-body\">
-                    <h2 class=\"card-title\"> " . $row->getTitre() . " </h2>
-                    <p class=\"card-text\"> " . $row->getContenu() . "</p>
-                    <a href=\"#\" class=\"btn btn-primary\">Read More &rarr;</a>
+            <div class='card mb-4 '>
+                <img class='card-img-top' src= " . $row->getUrl() . " width='100%' height='100%'>
+                <div class='card-body'>
+                    <h2 class='card-title'> " . $row->getTitre() . " </h2>
+                    <p class='card-text'> " . $row->getContenu() . "</p>
+                    <a href='?action=News&id=" . $row->getId() . "' class='btn btn-primary'>Read More &rarr;</a>
                 </div>
-                <div class=\"card-footer text-muted\">
+                <div class='card-footer text-muted'>
                     Posted on " . $row->getDate() . "
                 </div>
                     </div>
@@ -75,10 +68,10 @@ require("header.php");
         </div>
 
         <!-- Sidebar Widgets Column -->
-        <div class="col-md-4">
+        <div class="col-md-3    ">
 
             <!-- Search Widget -->
-            <div class="card my-4">
+            <div class="card my-5">
                 <h5 class="card-header">Search</h5>
                 <div class="card-body">
                     <div class="input-group">
@@ -126,12 +119,10 @@ require("header.php");
             </div> -->
 
             <!-- Side Widget -->
-            <div class="card my-4">
-                <h5 class="card-header">Qui sommes nous ?</h5>
-                <div class="card-body">
-                    Bah les meilleurs en fait <br>
-                    Voilà c'est tout <br>
-                    merci bien d'être sur le meilleur blog au monde =)
+            <div class="card my-5">
+                <h5 class="card-header">Pub</h5>
+                <div class="card-body" >
+                    <img src="https://publiticket.fr/wp-content/uploads/2017/10/publicite%CC%81.jpg" width="100%" >
                 </div>
             </div>
 
@@ -146,7 +137,7 @@ require("header.php");
 <!-- Footer -->
 <?php
 
-require("footer.php");
+include("footer.php");
 
 ?>
 

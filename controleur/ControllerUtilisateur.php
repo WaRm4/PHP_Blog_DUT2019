@@ -3,6 +3,9 @@
 require("modeles/Connexion.php");
 require("modeles/NewsModele.php");
 require("modeles/NewsGateway.php");
+require("modeles/CommentaireModele.php");
+require("modeles/CommentaireGateway.php");
+require ("Config/Validation.php");
 
 class ControllerUtilisateur
 {
@@ -19,6 +22,7 @@ class ControllerUtilisateur
             $con = new Connection($dsn, $user, $pass);
 
             $modelnews = new NewsModele($con);
+            $modelCommentaire = new CommentaireModele($con);
 
             if (isset($_GET['action'])) {
                 $action = $_REQUEST['action'];
@@ -27,6 +31,16 @@ class ControllerUtilisateur
 
                     case "bjr" :
                         require(__DIR__ . '/../vues/test.php');
+                        break;
+
+                    case "News" :
+                        $news = $modelnews->selectUneNews($_GET['id']);
+                        $commentaire = $modelCommentaire->selectCommentaires($_GET['id']);
+                        require(__DIR__ . '/../vues/VueNews.php');
+                        break;
+
+                    case "Validation" :
+                        $this->validationCommentaire($dataVueErreur, $modelCommentaire);
                         break;
 
                     default:
@@ -54,6 +68,17 @@ class ControllerUtilisateur
 
 
         exit(0);
+    }
+
+    function validationCommentaire(array $dVueEreur, $modelCommentaire) {
+
+        $pseudo=$_POST['pseudo'];
+        $contenu=$_POST['contenu'];
+        Validation::val_Commentaire($pseudo,$contenu,$dVueEreur);
+
+        $commentaire = $modelCommentaire->selectCommentaires($_GET['id']);
+
+        require(__DIR__ . '/../vues/VueNews.php');
     }
 
 }
