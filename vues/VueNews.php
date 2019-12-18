@@ -48,7 +48,11 @@ include("header.php");
                         <div class="form-group">
                             <textarea name="contenu" required class="form-control" rows="3"></textarea>
                         </div>
-                        <button type="submit" name="valider" class="btn btn-primary" href="index.php?action=Validation&" <?php echo $news->getId() ?> >Submit</button>
+                        <?php
+                        echo "
+                        <button type='submit' name='valider' class='btn btn-primary' href='index.php?action=Validation&id=' ". $news->getId() .">Submit</button>
+                        "
+                        ?>
                     </form>
                 </div>
             </div>

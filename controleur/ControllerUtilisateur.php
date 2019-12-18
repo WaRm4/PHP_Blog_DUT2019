@@ -74,10 +74,16 @@ class ControllerUtilisateur
         $pseudo=$_POST['pseudo'];
         $contenu=$_POST['contenu'];
         Validation::val_Commentaire($pseudo,$contenu,$dVueEreur);
-        $modelCommentaire
-        $commentaire = $modelCommentaire->selectCommentaires($id);
-
-        HEADER('location : index.php?action=News&'. $commentaire->getId() );
+        $add = $modelCommentaire->ajouterCommentaire($pseudo,$contenu,$id);
+        if(add == 1) {
+            $commentaire = $modelCommentaire->selectCommentaires($id);
+            HEADER('location : index.php?action=News&' . $commentaire->getId());
+        }
+        else
+        {
+            $dVueEreur[] = "element non ajouté";
+            require("/../vues/erreur.php");
+        }
     }
 
 }

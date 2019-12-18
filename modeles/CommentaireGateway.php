@@ -16,4 +16,13 @@ class CommentaireGateway
         $results=$this->con->getResults();
         return $results;
     }
+
+    public function ajoutCommentaire($pseudo, $contenu, $idN)
+    {
+        $query = "INSERT into commentaire Values (:idN, :pseudo, :contenu, SYSDATE() , NULL)";
+        $this->con->executeQuery($query, [':idN'=>[$idN,PDO::PARAM_INT],
+                                         ':pseudo'=>[$pseudo,PDO::PARAM_STR],
+                                         ':contenu'=>[$contenu,PDO::PARAM_STR]]);
+        return $this->con->getResults();
+    }
 }

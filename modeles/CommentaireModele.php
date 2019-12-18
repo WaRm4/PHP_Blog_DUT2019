@@ -22,6 +22,9 @@ class CommentaireModele
         return $tab;
     }
 
-    public function
+    public function ajouterCommentaire($pseudo, $contenu, $idN)
+    {
+        return $this->CommGtw->ajoutCommentaire($pseudo,$contenu,$idN);
+    }
 
 }

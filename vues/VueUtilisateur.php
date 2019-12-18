@@ -44,7 +44,7 @@ include("header.php");
                 <div class='card-body'>
                     <h2 class='card-title'> " . $row->getTitre() . " </h2>
                     <p class='card-text'> " . $row->getContenu() . "</p>
-                    <a href='?action=News&id=" . $row->getId() . "' class='btn btn-primary'>Read More &rarr;</a>
+                    <a href='index.php?action=News&id=" . $row->getId() . "' class='btn btn-primary'>Read More &rarr;</a>
                 </div>
                 <div class='card-footer text-muted'>
                     Posted on " . $row->getDate() . "
