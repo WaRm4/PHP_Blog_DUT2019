@@ -24,16 +24,15 @@ include("header.php");
         <div class="col-md">
             <?php
             echo "
-            <!-- Title -->
             <h1 class='mt-4 text-center'>" . $news->getTitre() . "</h1>
             <hr>
-            <p>Posted on " . $news->getDate() . "</p>
+            <p>Posté le :  " . $news->getDate() . "</p>
             <hr>
             <!-- Preview Image -->
             <img class='img-fluid rounded' src=" . $news->getUrl() . " width='100%' height='100%'>
             <hr>
-                <div class='row'>
-                    <p class='text-justify '>" . $news->getContenu() . "</p>
+                <div class='row ' style='word-break: break-word '>
+                    <p class='text-justify' style='margin-left: 2%'>" . $news->getContenu() . "</p>
                 </div>
             <hr>
             "
@@ -41,18 +40,18 @@ include("header.php");
 
             <!-- Comments Form -->
             <div class="card my-4">
-                <h5 class="card-header">Leave a Comment:</h5>
+                <h5 class="card-header">Commentaires :</h5>
                 <div class="card-body">
-                    <form method="post">
-                        <textarea name="pseudo" required class="form-control" rows="1"></textarea>
+                    <?php
+                    echo "
+                        <form id='sendComm' method='post' action='index.php?action=Validation&id=".$news->getId()."'>
+                        " ?>
+                        <textarea name="pseudo" required class="form-control" placeholder="pseudo" rows="1"></textarea>
                         <div class="form-group">
-                            <textarea name="contenu" required class="form-control" rows="3"></textarea>
+                            <textarea name="contenu" required class="form-control" placeholder="commentaire"
+                                      rows="3"></textarea>
                         </div>
-                        <?php
-                        echo "
-                        <button type='submit' name='valider' class='btn btn-primary' href='index.php?action=Validation&id=' ". $news->getId() .">Submit</button>
-                        "
-                        ?>
+                        <button type='submit' form='sendComm' name='valider' class='btn btn-primary' >Valider</button>
                     </form>
                 </div>
             </div>
@@ -60,11 +59,12 @@ include("header.php");
             <?php
             foreach ($commentaire as $row)
                 echo "
-                <div class='media mb-4'>
-                    <img class='d-flex mr-3 rounded-circle' src='http://placehold.it/50x50' >
-                    <div class='media-body'>
-                        <h5 class='mt-0'>" . $row->getPseudo() . "</h5>
+                    <div class='media mb-4 bg-light rounded' >
+                        <img class='d-flex mr-3 rounded-circle' src='http://placehold.it/50x50'>
+                        <div class='media-body' style='width: 90% ; word-break: break-word'>
+                            <h5 class='mt-0'>" . $row->getPseudo() . "</h5>
                             " . $row->getContenu() . "
+                        </div>
                     </div>
                     "
             ?>

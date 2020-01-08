@@ -40,7 +40,18 @@ class ControllerUtilisateur
                         break;
 
                     case "Validation" :
-                        $this->validationCommentaire($dataVueErreur, $modelCommentaire, $_GET['id']);
+                        $id = $_GET['id'];
+                        $pseudo=$_POST['pseudo'];
+                        $contenu=$_POST['contenu'];
+                        if(Validation::val_Commentaire($pseudo,$contenu,$dataVueErreur)) {
+                            $commentaire = $modelCommentaire->ajouterCommentaire($pseudo, $contenu, $id);
+                        }
+                        else
+                        {
+                            $dataVueErreur[] = "Probleme lors de la validation";
+                            require(__DIR__ . '/../vues/erreur.php');
+                        }
+                        HEADER('location : index.php?action=News&id=' . $id );
                         break;
 
                     default:
@@ -57,7 +68,7 @@ class ControllerUtilisateur
             }
         } catch
         (PDOException $e) {
-            //si erreur BD, pas le cas ici
+            //si erreur BD
             $dataVueErreur[] = "Erreur inattendue BDD!!! ";
             require(__DIR__ . '/../vues/erreur.php');
 
@@ -70,20 +81,23 @@ class ControllerUtilisateur
         exit(0);
     }
 
-    function validationCommentaire(array $dVueEreur, $modelCommentaire, $id) {
+   /* function validationCommentaire(array $dVueEreur, $modelCommentaire, $id) {
         $pseudo=$_POST['pseudo'];
         $contenu=$_POST['contenu'];
-        Validation::val_Commentaire($pseudo,$contenu,$dVueEreur);
-        $add = $modelCommentaire->ajouterCommentaire($pseudo,$contenu,$id);
-        if(add == 1) {
-            $commentaire = $modelCommentaire->selectCommentaires($id);
-            HEADER('location : index.php?action=News&' . $commentaire->getId());
+        if(Validation::val_Commentaire($pseudo,$contenu,$dVueEreur)) {
+            $add = $modelCommentaire->ajouterCommentaire($pseudo, $contenu, $id);
+            if (add == 1) {
+                $commentaire = $modelCommentaire->selectCommentaires($id);
+                HEADER('location : index.php?action=News&' . $commentaire->getId());
+            } else {
+                $dVueEreur[] = "element non ajouté";
+                require("/../vues/erreur.php");
+            }
         }
         else
         {
-            $dVueEreur[] = "element non ajouté";
-            require("/../vues/erreur.php");
+            require(__DIR__ . '/../vues/erreur.php');
         }
-    }
+    }*/
 
 }

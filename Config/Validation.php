@@ -18,24 +18,29 @@ class Validation {
         if (!isset($pseudo)||$pseudo=="") {
             $dataVueErreur[] =	"pas de pseudo";
             $pseudo="";
+            return false;
         }
 
         if ($pseudo != filter_var($pseudo, FILTER_SANITIZE_STRING))
         {
             $dataVueErreur[] =	"tentative d'injection de code (attaque sécurité)";
             $pseudo="";
+            return false;
         }
 
         if (!isset($contenu)||$contenu=="") {
             $dataVueErreur[] =	"pas de contenu";
             $contenu="";
+            return false;
         }
 
         if ($contenu != filter_var($contenu, FILTER_SANITIZE_STRING))
         {
             $dataVueErreur[] =	"tentative d'injection de code (attaque sécurité)";
             $contenu="";
+            return false;
         }
+        return true;
 
     }
 

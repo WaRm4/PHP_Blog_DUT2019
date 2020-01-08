@@ -44,10 +44,10 @@ include("header.php");
                 <div class='card-body'>
                     <h2 class='card-title'> " . $row->getTitre() . " </h2>
                     <p class='card-text'> " . $row->getContenu() . "</p>
-                    <a href='index.php?action=News&id=" . $row->getId() . "' class='btn btn-primary'>Read More &rarr;</a>
+                    <a href='index.php?action=News&id=" . $row->getId() . "' class='btn btn-primary'>Voir plus &rarr;</a>
                 </div>
                 <div class='card-footer text-muted'>
-                    Posted on " . $row->getDate() . "
+                    Posté le :  " . $row->getDate() . "
                 </div>
                     </div>
              
@@ -58,10 +58,10 @@ include("header.php");
             <!-- Pagination -->
             <ul class="pagination justify-content-center mb-4">
                 <li class="page-item">
-                    <a class="page-link" href="#">&larr; Older</a>
+                    <a class="page-link" href="#">&larr; Précédent</a>
                 </li>
-                <li class="page-item disabled">
-                    <a class="page-link" href="#">Newer &rarr;</a>
+                <li class="page-item">
+                    <a class="page-link" href="#">Suivant &rarr;</a>
                 </li>
             </ul>
 
@@ -72,10 +72,10 @@ include("header.php");
 
             <!-- Search Widget -->
             <div class="card my-5">
-                <h5 class="card-header">Search</h5>
+                <h5 class="card-header">Rechercher</h5>
                 <div class="card-body">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
+                        <input type="text" class="form-control" placeholder="Rechercher par...">
                         <span class="input-group-btn">
                 <button class="btn btn-secondary" type="button">Go!</button>
               </span>
