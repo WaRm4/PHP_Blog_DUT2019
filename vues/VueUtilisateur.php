@@ -18,12 +18,10 @@ include("header.php");
 ?>
 
 <body>
-<!-- Page Content -->
 <div class="container">
 
     <div class="row">
 
-        <!-- Blog Entries Column -->
         <div class="col-md-9">
 
             <h1 class="my-4">Bienvenue sur mon super Blog !
@@ -55,7 +53,6 @@ include("header.php");
 
             ?>
 
-            <!-- Pagination -->
             <ul class="pagination justify-content-center mb-4">
                 <li class="page-item">
                     <a class="page-link" href="#">&larr; Précédent</a>
@@ -67,10 +64,8 @@ include("header.php");
 
         </div>
 
-        <!-- Sidebar Widgets Column -->
         <div class="col-md-3    ">
 
-            <!-- Search Widget -->
             <div class="card my-5">
                 <h5 class="card-header">Rechercher</h5>
                 <div class="card-body">
@@ -83,42 +78,6 @@ include("header.php");
                 </div>
             </div>
 
-            <!-- Categories Widget
-            <div class="card my-4">
-                <h5 class="card-header">Categories</h5>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <a href="#">Web Design</a>
-                                </li>
-                                <li>
-                                    <a href="#">HTML</a>
-                                </li>
-                                <li>
-                                    <a href="#">Freebies</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <a href="#">JavaScript</a>
-                                </li>
-                                <li>
-                                    <a href="#">CSS</a>
-                                </li>
-                                <li>
-                                    <a href="#">Tutorials</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- Side Widget -->
             <div class="card my-5">
                 <h5 class="card-header">Pub</h5>
                 <div class="card-body" >
@@ -129,22 +88,15 @@ include("header.php");
         </div>
 
     </div>
-    <!-- /.row -->
 
 </div>
-<!-- /.container -->
 
-<!-- Footer -->
 <?php
 
 include("footer.php");
 
 ?>
 
-<!-- Bootstrap core JavaScript
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
--->
 </body>
 
 </html>

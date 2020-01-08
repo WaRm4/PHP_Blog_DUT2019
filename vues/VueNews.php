@@ -17,10 +17,8 @@ include("header.php");
 
 <body>
 
-<!-- Page Content -->
 <div class="container">
     <div class="row">
-        <!-- Post Content Column -->
         <div class="col-md">
             <?php
             echo "
@@ -38,13 +36,12 @@ include("header.php");
             "
             ?>
 
-            <!-- Comments Form -->
             <div class="card my-4">
                 <h5 class="card-header">Commentaires :</h5>
                 <div class="card-body">
                     <?php
                     echo "
-                        <form id='sendComm' method='post' action='index.php?action=Validation&id=".$news->getId()."'>
+                        <form id='sendComm' method='post' action='index.php?action=ValidationComm&id=".$news->getId()."'>
                         " ?>
                         <textarea name="pseudo" required class="form-control" placeholder="pseudo" rows="1"></textarea>
                         <div class="form-group">
@@ -71,10 +68,8 @@ include("header.php");
 
         </div>
     </div>
-    <!-- /.row -->
 
 </div>
-<!-- /.container -->
 <?php
 
 include("footer.php");

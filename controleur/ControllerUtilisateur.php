@@ -29,17 +29,13 @@ class ControllerUtilisateur
 
                 switch ($action) {
 
-                    case "bjr" :
-                        require(__DIR__ . '/../vues/test.php');
-                        break;
-
                     case "News" :
                         $news = $modelnews->selectUneNews($_GET['id']);
                         $commentaire = $modelCommentaire->selectCommentaires($_GET['id']);
                         require(__DIR__ . '/../vues/VueNews.php');
                         break;
 
-                    case "Validation" :
+                    case "ValidationComm" :
                         $id = $_GET['id'];
                         $pseudo=$_POST['pseudo'];
                         $contenu=$_POST['contenu'];
@@ -52,6 +48,28 @@ class ControllerUtilisateur
                             require(__DIR__ . '/../vues/erreur.php');
                         }
                         HEADER('location : index.php?action=News&id=' . $id );
+                        break;
+
+                    case "ValidationNews" :
+                        $dataVueErreur[] = "News validée ";
+                        require(__DIR__ . '/../vues/erreur.php');
+                        break;
+
+                    case "AjoutNews" :
+                        require(__DIR__ . '/../vues/VueAjoutNews.php');
+                        break;
+
+                    case "Connexion" :
+                        require(__DIR__ . '/../vues/VueConnexion.php');
+                        break;
+
+                    case "ValidationConnexion" :
+                        $dataVueErreur[] = "Connexion validée ";
+                        require(__DIR__ . '/../vues/erreur.php');
+                        break;
+
+                    case "Apropos" :
+                        require(__DIR__ . '/../vues/Apropos.php');
                         break;
 
                     default:
@@ -81,23 +99,5 @@ class ControllerUtilisateur
         exit(0);
     }
 
-   /* function validationCommentaire(array $dVueEreur, $modelCommentaire, $id) {
-        $pseudo=$_POST['pseudo'];
-        $contenu=$_POST['contenu'];
-        if(Validation::val_Commentaire($pseudo,$contenu,$dVueEreur)) {
-            $add = $modelCommentaire->ajouterCommentaire($pseudo, $contenu, $id);
-            if (add == 1) {
-                $commentaire = $modelCommentaire->selectCommentaires($id);
-                HEADER('location : index.php?action=News&' . $commentaire->getId());
-            } else {
-                $dVueEreur[] = "element non ajouté";
-                require("/../vues/erreur.php");
-            }
-        }
-        else
-        {
-            require(__DIR__ . '/../vues/erreur.php');
-        }
-    }*/
 
 }

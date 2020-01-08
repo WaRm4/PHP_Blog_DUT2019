@@ -17,10 +17,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?action=bjr">A propos</a>
+                        <a class="nav-link" href="?action=AjoutNews">Ajouter News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="?action=Connexion">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?action=Apropos">A propos</a>
                     </li>
                 </ul>
             </div>
