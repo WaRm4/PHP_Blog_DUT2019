@@ -1,6 +1,6 @@
 <?php
 
-require ('Commentaire.php');
+require_once('Commentaire.php');
 
 class CommentaireModele
 {
@@ -18,13 +18,19 @@ class CommentaireModele
         $results = $this->CommGtw->selectCommentaires($idN);
         $tab = [];
         foreach ($results as $row)
-            $tab[] = new Commentaire($row['idNews'], $row['pseudo'], $row['dateP'], $row['contenu'] );
+            $tab[] = new Commentaire($row['idNews'], $row['pseudo'], $row['dateP'], $row['contenu']);
         return $tab;
     }
 
     public function ajouterCommentaire($pseudo, $contenu, $idN)
     {
-        return $this->CommGtw->ajoutCommentaire($pseudo,$contenu,$idN);
+        return $this->CommGtw->ajoutCommentaire($pseudo, $contenu, $idN);
+    }
+
+    public function selectCommEcris()
+    {
+        $results = $this->CommGtw->selectCommEcris();
+        return $results[0]['total'];
     }
 
 }

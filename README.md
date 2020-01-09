@@ -2,6 +2,7 @@
 Projet PHP DUT 2019
 ===================
 Ce projet consiste en un petit **blog** qui sera codé en PHP __principalement__ .
+Il y a quelques erreurs lors de l'ajout d'une news ou d'un commentaire, cependant l'ajout fonctionne.
 
 Ce projet n'est pas ~~sale~~ il utilise l'architecture ***MVC*** :
 

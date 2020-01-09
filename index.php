@@ -1,6 +1,13 @@
 <?php
+require_once("modeles/Connexion.php");
 
-require_once ("controleur/ControllerUtilisateur.php");
-$cont = new ControllerUtilisateur();
+$user = 'root';
+$pass = '';
+$dsn = 'mysql:host=localhost;dbname=proj';
+$con = new Connection($dsn, $user, $pass);
+
+require ("controleur/FrontController.php");
+
+$cont = new FrontController($con);
 
 ?> 

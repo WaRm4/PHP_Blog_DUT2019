@@ -45,8 +45,4 @@ class Commentaire
     {
         $this->contenu = $contenu;
     }
-    public function setIdN($idN)
-    {
-        $this->idNews = $idN;
-    }
 }

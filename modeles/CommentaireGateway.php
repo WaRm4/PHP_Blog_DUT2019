@@ -25,4 +25,11 @@ class CommentaireGateway
                                          ':contenu'=>[$contenu,PDO::PARAM_STR]]);
         return $this->con->getResults();
     }
+
+    public function selectCommEcris()
+    {
+        $query = "SELECT count(*) as total from commentaire";
+        $this->con->executeQuery($query);
+        return $this->con->getResults();
+    }
 }

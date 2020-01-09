@@ -5,9 +5,10 @@
 
     <meta charset="utf-8">
 
-    <title>News</title>
+    <title>A propos</title>
     <link href="vues/bootstrap/css/bootstrap.min.css" rel="stylesheet"> <!-- Car c'est appelé depuis l'index-->
     <link href="vues/css/vueNews.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="vues/images/Apropos.png" />
 
 </head>
 
