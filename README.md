@@ -12,5 +12,4 @@ Ce projet utilise l'architecture ***MVC*** :
 |                             | html/css/php  |                      |
 
 + Que faut-il pour un métier ?
-
-<p>Un modele, une gateway et un controlleur.</p> 
+-Un modele, une gateway et un controlleur. 
